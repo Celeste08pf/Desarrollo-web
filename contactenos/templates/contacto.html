@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contáctenos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #1c412f;
+    --parchment: #F2EAD3;
+    --parchment-2: #E9DFC0;
+    --brass: #A47148;
+    --rust: #B5482B;
+    --gray: #6B7280;
+    --paper-line: rgba(28,37,65,0.14);
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: var(--ink);
+    background-image:
+      radial-gradient(circle at 85% 15%, rgba(164,113,72,0.18), transparent 40%),
+      radial-gradient(circle at 10% 85%, rgba(181,72,43,0.12), transparent 45%);
+    font-family: 'IBM Plex Sans', sans-serif;
+    padding: 32px;
+  }
+
+  .envelope{
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    background: var(--parchment);
+    border-radius: 4px;
+    box-shadow: 0 30px 60px -20px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,0,0,0.05);
+    overflow: hidden;
+  }
+
+  /* envelope flap */
+  .flap{
+    position: relative;
+    height: 84px;
+    background: var(--parchment-2);
+    clip-path: polygon(0 0, 50% 78%, 100% 0, 100% 100%, 0 100%);
+    border-bottom: 1px solid var(--paper-line);
+  }
+
+  .content{
+    padding: 20px 44px 44px;
+  }
+
+  .header-row{
+    display:flex;
+    align-items:flex-start;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin: 0 0 10px;
+  }
+
+  h1{
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.15;
+    color: var(--ink);
+    margin: 0 0 6px;
+  }
+
+  .sub{
+    color: var(--gray);
+    font-size: 14px;
+    margin: 0 0 30px;
+    max-width: 40ch;
+  }
+
+  /* stamp signature element, echoes the login form */
+  .stamp{
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    border: 1.5px solid var(--rust);
+    border-radius: 50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transform: rotate(9deg);
+    opacity: 0.85;
+    margin-top: 2px;
+  }
+  .stamp span{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--rust);
+    text-align:center;
+    line-height: 1.3;
+  }
+
+  form{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .field{ position: relative; }
+
+  .two-col{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  label{
+    display:block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink);
+    opacity: 0.65;
+    margin-bottom: 8px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea{
+    width: 100%;
+    border: none;
+    border-bottom: 1.5px solid var(--paper-line);
+    background: transparent;
+    padding: 8px 2px 10px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15.5px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s ease;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  textarea{
+    resize: vertical;
+    min-height: 90px;
+    line-height: 1.5;
+  }
+
+  select{
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' fill='none' fill-rule='evenodd'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 2px center;
+    padding-right: 20px;
+  }
+
+  input::placeholder, textarea::placeholder{ color: rgba(28,37,65,0.35); }
+
+  input:focus, select:focus, textarea:focus{
+    border-bottom-color: var(--rust);
+  }
+
+  input:focus-visible, select:focus-visible, textarea:focus-visible{
+    outline: 2px solid var(--brass);
+    outline-offset: 4px;
+  }
+
+  button{
+    margin-top: 10px;
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--ink);
+    color: var(--parchment);
+    border: none;
+    border-radius: 2px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: background .2s ease, transform .1s ease;
+  }
+
+  button:hover{ background: #0f1730; }
+  button:active{ transform: translateY(1px); }
+  button:focus-visible{ outline: 2px solid var(--brass); outline-offset: 3px; }
+
+  .footer-text{
+    text-align:center;
+    font-size: 13px;
+    color: var(--gray);
+    margin-top: 20px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    button{ transition: none; }
+  }
+
+  @media (max-width: 480px){
+    .content{ padding: 18px 26px 32px; }
+    .two-col{ grid-template-columns: 1fr; gap: 20px; }
+    .stamp{ width: 46px; height: 46px; }
+    .flap{ height: 64px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="envelope">
+    <div class="flap"></div>
+    <div class="content">
+      <div class="header-row">
+        <div>
+          <p class="eyebrow">Correspondencia</p>
+          <h1>Contáctenos</h1>
+          <p class="sub">Cuéntanos qué necesitas y te responderemos en un plazo de uno a dos días hábiles.</p>
+        </div>
+        <div class="stamp"><span>Enviado<br>con cuidado</span></div>
+      </div>
+
+      <form action="#" method="post">
+        <div class="two-col">
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="field">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" placeholder="nombre@correo.com" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="asunto">Asunto</label>
+          <select id="asunto" name="asunto" required>
+            <option value="" disabled selected>Elige un motivo</option>
+            <option value="ventas">Consulta de ventas</option>
+            <option value="soporte">Soporte técnico</option>
+            <option value="facturacion">Facturación</option>
+            <option value="otro">Otro</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required></textarea>
+        </div>
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
+
+      <p class="footer-text">También puedes escribirnos a hola@tuempresa.com</p>
+    </div>
+  </div>
+
+</body>
+</html>
